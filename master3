@@ -1,0 +1,16 @@
+
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                git branch: 'main', credentialsId: 'siddeshPAT', url: 'https://github.com/Siddeshg672/hello_world_public_war.git'
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'mvn clean install'
+            }
+        }
+    }
+}
